@@ -7,7 +7,7 @@ const path = require("path");
 function BackupStore () {
   const userHome = process.env[process.platform == "win32" ? "USERPROFILE" : "HOME"];
   const privKey = fs.readFileSync(path.join(userHome, ".ipfs-backup-key"), "utf8");
-  const username = crypto.createHash("sha256").update(privKey + ":username").digest("hex").slice(0, 24);
+  const username = crypto.createHash("sha256").update(privKey + ":username").digest("hex").slice(0, 12);
   const password = crypto.createHash("sha256").update(privKey + ":password").digest("hex").slice(0, 24);
   const user = gun.user();
   this.init = function() {
