@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+const BackupStore = require("../index");
+
+const store = new BackupStore();
+
+(async () => {
+  await store.init();
+  if (process.argv[2] === "register") {
+    await store.setBackupId(process.argv[4], process.argv[3]);
+    process.exit(0);
+  }
+  if (process.argv[2] === "get") {
+    let backupId;
+    try {
+      backupId = await store.getNewestBackupId(process.argv[3]);
+    } catch(err) {
+      process.exit(0);
+    }
+    console.log(backupId);
+    process.exit(0);
+  }
+})();

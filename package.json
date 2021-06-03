@@ -8,6 +8,9 @@
   },
   "keywords": [],
   "author": "",
+  "bin": {
+    "ipfs-backup-gun": "./bin/ipfs-backup-gun"
+  },
   "license": "ISC",
   "dependencies": {
     "gun": "^0.2020.1232"
