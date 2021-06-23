@@ -1,11 +1,13 @@
 const Gun = require("gun");
+const userHome = process.env[process.platform == "win32" ? "USERPROFILE" : "HOME"]
+const path = require("path");
 const gun = Gun({
   radisk: false,
+  file: path.join(userHome, ".gun.json"),
   peers: ['https://mvp-gun.herokuapp.com/gun', 'https://e2eec.herokuapp.com/gun']
 });
 const crypto = require("crypto");
 const fs = require("fs");
-const path = require("path");
 
 function BackupStore () {
   const userHome = process.env[process.platform == "win32" ? "USERPROFILE" : "HOME"];
