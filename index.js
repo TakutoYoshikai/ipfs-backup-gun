@@ -1,5 +1,8 @@
 const Gun = require("gun");
-const gun = Gun(['https://mvp-gun.herokuapp.com/gun', 'https://e2eec.herokuapp.com/gun']);
+const gun = Gun({
+  radisk: false,
+  peers: ['https://mvp-gun.herokuapp.com/gun', 'https://e2eec.herokuapp.com/gun']
+});
 const crypto = require("crypto");
 const fs = require("fs");
 const path = require("path");
